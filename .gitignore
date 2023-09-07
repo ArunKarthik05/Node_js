@@ -1,0 +1,4 @@
+
+*.ps1
+*.cmd
+natours/node_modules
