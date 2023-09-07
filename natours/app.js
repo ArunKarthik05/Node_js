@@ -9,7 +9,13 @@ const userRouter = require('./routes/userRoutes');
 app.use(express.json());
 
 //3rd party middelware
-app.use(morgan('dev'));
+if (process.env.NODE_ENV == 'development') {
+  console.log('I am a 3rd part middelware🤗');
+  app.use(morgan('dev'));
+}
+
+//Serving static files
+app.use(express.static(`${__dirname}/public`));
 
 //next should be sent after all our middleware
 app.use((req, res, next) => {
